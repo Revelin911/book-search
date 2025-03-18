@@ -37,4 +37,6 @@ const bookSchema = new Schema<BookDocument>({
   },
 });
 
+//// const Book = model<BookDocument>('Book', bookSchema);
+// export { type BookDocument, bookSchema };
 export default bookSchema;
