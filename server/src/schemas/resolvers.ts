@@ -35,9 +35,11 @@ interface Context {
   user?: Profile; // Optional user profile in context
 }
 
+// Define the query and mutation functionality to work with the Mongoose models
+
 const resolvers = {
   Query: {
-    profiles: async (): Promise<Profile[]> => {
+    profiles: async (): Promise<Profile[] | null> => {
       // Retrieve all profiles
       return await Profile.find();
     },
