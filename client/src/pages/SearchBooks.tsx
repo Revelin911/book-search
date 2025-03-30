@@ -33,7 +33,7 @@ const SearchBooks = () => {
   });
 
   useEffect(() => {
-    saveBookIds([...saveBookIds]);
+    saveBookIds(savedBookIds);
   }, [savedBookIds]);
 
   // create method to search for books and set state on form submit
@@ -81,6 +81,9 @@ const SearchBooks = () => {
     }
 
     try {
+      //const { data } = await saveBook({
+      //variables: { book: bookToSave },
+      //});
       const response = await saveBook(bookToSave, token);
 
       if (!response.ok) {

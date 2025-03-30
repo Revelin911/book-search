@@ -23,7 +23,7 @@ In order for this project to work properly, you will need to download the librar
 
 ![MIT LICENSE INFO](https://choosealicense.com/licenses/mit/#)
 
-![MongoDB Filtering](https://studio3t.com/knowledge-base/articles/mongodb-aggregation-framework/)
+![GraphQL Usage](https://stackoverflow.com/questions/76758330/use-of-useeffects-to-set-data-using-graphql-in-react-application)
 
 ## License
 
