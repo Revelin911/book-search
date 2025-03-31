@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is to help platforms, such as social networks, to navigate through unstrcutred data in an organized manner for users. The reason behind this is for users to have a seamless experience while performing certain actions. Being able to go through the databse will help organize data based on user, friends, thoughts and reactions. This project helps usability for user when they are updating their database. I was able to learn to go step by step and filter through each actions using NoSQL database. It helped me get more practice in mapping out each step and adding the proper functions accordingly. 
+This project allows users to search and save books in an organized manner. The reason behind this is for users to have a seamless experience while performing certain actions. Being able to go through the database will help users view books and then view the ones they saved separately. This project uses Google Books API with a MongoDB database. I was able to learn how to rewirk some of starter code to go from RESTful API to using MongoDB database. It helped me get more practice in mapping out each step and adding the proper functions accordingly. 
 
 ## Table of Contents 
 
@@ -54,4 +54,4 @@ SOFTWARE.
 If everything runs correctly you should be able to view the following prompts:
 ![Examples of data](Assets/Prompts.png)
 
-![Video demo of data](https://drive.google.com/file/d/1wKvDrKflmj_nI3bDpNfPFSBVNbeha48K/view)
+![Render Link](https://drive.google.com/file/d/1wKvDrKflmj_nI3bDpNfPFSBVNbeha48K/view)
