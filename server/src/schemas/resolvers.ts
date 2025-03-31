@@ -1,5 +1,5 @@
 import User from '../models/User'
-import { signToken, AuthenticationError } from '../utils/auth.js';
+import { signToken, AuthenticationError } from '../services/auth.js';
 
 // Define the query and mutation functionality to work with the Mongoose models
 
@@ -16,19 +16,19 @@ const resolvers = {
   },
 
   Mutation: {
-   login: async (_parent: unknown, { email, password }: { email: string; password: string }) => { 
+   login: async (_parent: any, { email, password }: { email: string; password: string }) => { 
     const user = await User.findOne({ email });
      if (!user || !(await user.isCorrectPassword(password))) {
       throw new AuthenticationError('User or password incorrect');
      }
-      const token= signToken(user);
+      const token= signToken(user.username, user.email, user._id);
       return { token, user };
     },
 
       // Create a new user with provided name, email, and password
       addUser: async (_parent: unknown, { username, email, password }: { username: string; email: string; password: string }) => {
         const user = await User.create({ username, email, password });
-const token = signToken(user);
+const token = signToken(user.username, user.email, user._id);
 return { token, user };
       },
 
