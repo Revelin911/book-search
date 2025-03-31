@@ -1,19 +1,23 @@
 import { useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-
-import { createUser } from '../utils/API';
+import { ADD_USER } from '../utils/mutations';
+import { useMutation } from 'apollo/cient';
 import Auth from '../utils/auth';
-import type { User } from '../models/User';
 
+interface SignupFormProps {
+  handleModalClose: () => void;
+}
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
-const SignupForm = ({}: { handleModalClose: () => void }) => {
+const SignupForm = ({ handleModalClose }: SignupFormProps) => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', savedBooks: [] });
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', savedBooks: [] });
   // set state for form validation
-  const [validated] = useState(false);
+  const [validated, setValidated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
+  //add user
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
