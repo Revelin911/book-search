@@ -5,13 +5,13 @@ import {
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from 'apollo/client';
+} from '@apollo/client';
 
 import Navbar from './components/Navbar';
 import { setContext } from '@apollo/client/link/context';
 
 // Connect HTTP link to GraphQL server
-const httpLink = createHttpLink({ uri: '/graphql',});
+const httpLink = createHttpLink({ uri: 'http://localhost:3001/graphql',});
 
 // Attach JWT token to requests
 const authLink = setContext((_, { headers }) => {

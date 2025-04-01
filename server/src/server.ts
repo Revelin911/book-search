@@ -5,6 +5,8 @@ import path from 'node:path';
 import { typeDefs, resolvers } from './schemas/index.js';
 import db from './config/connection.js';
 import { fileURLToPath } from 'url';
+import type { Request, Response } from 'express';
+import { authenticateToken } from './services/auth.js';
 
 // Implement the Apollo Server and apply it to the Express server as middleware.
 const app = express();
@@ -19,24 +21,23 @@ const server = new ApolloServer({
 });
 const startApolloServer = async () => {
   await server.start();
+  await db;
   
   app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use('/graphql', expressMiddleware(server, {
-  context: async ({ req }) => ({ token: req.headers.authorization }),
-}));
+app.use('/graphql', expressMiddleware(server as any, {
+  context: authenticateToken as any }
+));
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/dist')));
 
-  app.get('*', (_req, res) => {
+  app.get('*', (_req: Request, res: Response) => {
     res.sendFile(path.join
       (__dirname, '../client/dist/index.html'));
   });
 }
-
-db.on('error',  console.error.bind(console, 'MongoDB connection error:'));
   
   app.listen(PORT, () => {
     console.log(`🌍 Now listening on port ${PORT}`);
