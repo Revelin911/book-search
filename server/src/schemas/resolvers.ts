@@ -1,4 +1,4 @@
-import User from '../models/User'
+import User from '../models/User.js';
 import { signToken, AuthenticationError } from '../services/auth.js';
 
 // Define the query and mutation functionality to work with the Mongoose models

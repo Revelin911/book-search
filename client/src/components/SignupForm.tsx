@@ -11,7 +11,7 @@ interface SignupFormProps {
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
 const SignupForm = ({ handleModalClose }: SignupFormProps) => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', savedBooks: [] });
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -57,7 +57,7 @@ const SignupForm = ({ handleModalClose }: SignupFormProps) => {
       username: '',
       email: '',
       password: '',
-      savedBooks: [],
+      // savedBooks: [],
     });
   };
 
