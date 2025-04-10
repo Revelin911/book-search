@@ -7,6 +7,9 @@ import db from './config/connection.js';
 import { fileURLToPath } from 'url';
 import type { Request, Response } from 'express';
 import { authenticateToken } from './services/auth.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // Implement the Apollo Server and apply it to the Express server as middleware.
 const app = express();

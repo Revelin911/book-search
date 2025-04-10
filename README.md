@@ -51,7 +51,4 @@ SOFTWARE.
 
 ## Tests
 
-If everything runs correctly you should be able to view the following prompts:
-![Examples of data](Assets/Prompts.png)
-
-![Render Link](https://drive.google.com/file/d/1wKvDrKflmj_nI3bDpNfPFSBVNbeha48K/view)
+![Render Link](https://book-search-9wbj.onrender.com)
